@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Strava Stats</title>
+
+    <style>
+        body {
+            background: #0e0e0e;
+            color: #f2c200;
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        iframe {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(255, 255, 0, 0.25);
+        }
+
+        @media (min-width: 700px) {
+            .container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <h2>My Strava Stats</h2>
-    <iframe height="454" width="300" frameborder="0" allowtransparency="true" scrolling="no"
-      src="https://www.strava.com/athletes/165506747/latest-rides/b80c07acf70cfa946cc86a5543f665b9f8313628">
-    </iframe>
-    <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/165506747/activity-summary/b80c07acf70cfa946cc86a5543f665b9f8313628'></iframe>
-  </body>
+
+    <div class="container">
+        <iframe 
+            height="454" 
+            width="300"
+            scrolling="no"
+            src="https://www.strava.com/athletes/165506747/latest-rides/b80c07acf70cfa946cc86a5543f665b9f8313628">
+        </iframe>
+
+        <iframe 
+            height="160" 
+            width="300"
+            scrolling="no"
+            src="https://www.strava.com/athletes/165506747/activity-summary/b80c07acf70cfa946cc86a5543f665b9f8313628">
+        </iframe>
+    </div>
+</body>
 </html>
