@@ -1,65 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Strava Stats</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strava Performance Dashboard</title>
 
-    <style>
-        body {
-            background: #0e0e0e;
-            color: #f2c200;
-            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 40px 0;
-            text-align: center;
-        }
+<style>
+  * { box-sizing: border-box; }
 
-        h2 {
-            font-weight: 600;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
+  body {
+    margin: 0;
+    padding: 16px;
+    background: #000;
+    color: #fff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* no scroll on desktop */
+  }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
+  /* Centered header with logo and text side by side */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center horizontally */
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* wrap on smaller screens */
+  }
 
-        iframe {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(255, 255, 0, 0.25);
-        }
+  .logo { width: 140px; flex-shrink: 0; }
 
-        @media (min-width: 700px) {
-            .container {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-    </style>
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .header-text h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .header-text h3 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #f2c200;
+    margin: 0;
+  }
+
+  .view-btn {
+    background: linear-gradient(135deg, #ff7a18, #ffb347);
+    color: #000;
+    border: none;
+    padding: 12px 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    align-self: start;
+  }
+
+  .view-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(255, 165, 0, 0.6);
+  }
+
+  .dashboard {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  .stats-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  iframe {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 200, 0, 0.3);
+  }
+
+  .map { width: 48%; height: 65vh; }
+  .summary { width: 48%; height: 65vh; }
+
+  footer {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 6px;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 767px) {
+    body { overflow-y: auto; height: auto; }
+    .header { flex-direction: column; text-align: center; }
+    .header-text { text-align: center; }
+    .view-btn { align-self: center; }
+    .stats-container { flex-direction: column; height: auto; gap: 12px; }
+    .map, .summary { width: 95%; height: 250px; }
+  }
+
+</style>
 </head>
 
 <body>
-    <h2>Strava Stats</h2>
 
-    <div class="container">
-        <iframe 
-            height="454" 
-            width="300"
-            scrolling="no"
-            src="https://www.strava.com/athletes/165506747/latest-rides/b80c07acf70cfa946cc86a5543f665b9f8313628">
-        </iframe>
+<div class="header">
+  <img class="logo" src="./Assets/logo.png" alt="Strava Logo">
+  <div class="header-text">
+    <h1>Endurance • Consistency • Performance</h1>
+    <h3>Strava Running & Activity Analytics</h3>
+    <button class="view-btn" onclick="openStravaLink()">
+      View My Yearly & Monthly Running Activities
+    </button>
+  </div>
+</div>
 
-        <iframe 
-            height="160" 
-            width="300"
-            scrolling="no"
-            src="https://www.strava.com/athletes/165506747/activity-summary/b80c07acf70cfa946cc86a5543f665b9f8313628">
-        </iframe>
-    </div>
+<div class="dashboard">
+  <div class="stats-container">
+    <iframe class="map"
+      src="https://www.strava.com/athletes/165506747/latest-rides/b80c07acf70cfa946cc86a5543f665b9f8313628">
+    </iframe>
+    <iframe class="summary"
+      src="https://www.strava.com/athletes/165506747/activity-summary/b80c07acf70cfa946cc86a5543f665b9f8313628">
+    </iframe>
+  </div>
+</div>
+
+<footer>
+  Built with discipline & data • Powered by Strava
+</footer>
+
+<script>
+function openStravaLink() {
+  window.open("https://github.com/RouthKiranBabu/Strava_stats/blob/main/Yearly_Monthly.md#-yearly--monthly-summary-report", "_blank");
+}
+</script>
+
 </body>
 </html>
