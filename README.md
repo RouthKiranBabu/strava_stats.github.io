@@ -1,4 +1,4 @@
-<h2 align="center">Yearly & Monthly Summary Report</h2>
+<h2 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Tear%20Off%20Calendar.webp" alt="Tear Off Calendar" width="40" height="40" /> Yearly & Monthly Summary Report</h2>
 
 <p align="center">
 Structured view of <strong>running achievements, completed challenges, and performance consistency</strong>
